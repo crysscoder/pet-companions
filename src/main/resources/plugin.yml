@@ -1,0 +1,8 @@
+name: PetCompanions
+version: '${version}'
+main: dev.cryst.petcompanions.PetCompanionsPlugin
+api-version: '1.20'
+commands:
+  pet:
+    description: Управление питомцами
+    usage: /pet <subcommand>
