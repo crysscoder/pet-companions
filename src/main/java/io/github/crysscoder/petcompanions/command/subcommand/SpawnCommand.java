@@ -1,10 +1,10 @@
-package dev.cryst.petcompanions.command.subcommand;
+package io.github.crysscoder.petcompanions.command.subcommand;
 
 import lombok.AllArgsConstructor;
 import org.bukkit.entity.Player;
-import dev.cryst.petcompanions.pet.Pet;
-import dev.cryst.petcompanions.pet.species.NormalPet;
-import dev.cryst.petcompanions.service.PetService;
+import io.github.crysscoder.petcompanions.pet.Pet;
+import io.github.crysscoder.petcompanions.pet.species.NormalPet;
+import io.github.crysscoder.petcompanions.service.PetService;
 
 import java.util.List;
 

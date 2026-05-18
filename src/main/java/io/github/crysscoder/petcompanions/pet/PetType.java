@@ -1,4 +1,4 @@
-package dev.cryst.petcompanions.pet;
+package io.github.crysscoder.petcompanions.pet;
 
 public enum PetType {
     NORMAL,

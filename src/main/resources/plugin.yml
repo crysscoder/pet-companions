@@ -1,6 +1,6 @@
 name: PetCompanions
 version: '${version}'
-main: dev.cryst.petcompanions.PetCompanionsPlugin
+main: io.github.crysscoder.petcompanions.PetCompanionsPlugin
 api-version: '1.20'
 commands:
   pet:

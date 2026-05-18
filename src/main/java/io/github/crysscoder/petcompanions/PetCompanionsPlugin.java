@@ -1,10 +1,10 @@
-package dev.cryst.petcompanions;
+package io.github.crysscoder.petcompanions;
 
 import org.bukkit.plugin.java.JavaPlugin;
-import dev.cryst.petcompanions.command.PetCommand;
-import dev.cryst.petcompanions.command.subcommand.DespawnCommand;
-import dev.cryst.petcompanions.command.subcommand.SpawnCommand;
-import dev.cryst.petcompanions.service.PetService;
+import io.github.crysscoder.petcompanions.command.PetCommand;
+import io.github.crysscoder.petcompanions.command.subcommand.DespawnCommand;
+import io.github.crysscoder.petcompanions.command.subcommand.SpawnCommand;
+import io.github.crysscoder.petcompanions.service.PetService;
 
 import java.util.Objects;
 

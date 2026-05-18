@@ -1,4 +1,4 @@
-package dev.cryst.petcompanions.pet;
+package io.github.crysscoder.petcompanions.pet;
 
 import com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory;
 import lombok.Data;

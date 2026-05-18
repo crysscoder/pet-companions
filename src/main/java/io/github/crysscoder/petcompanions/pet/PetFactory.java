@@ -1,9 +1,9 @@
-package dev.cryst.petcompanions.pet;
+package io.github.crysscoder.petcompanions.pet;
 
 import org.bukkit.entity.Player;
-import dev.cryst.petcompanions.pet.species.LegendaryPet;
-import dev.cryst.petcompanions.pet.species.NormalPet;
-import dev.cryst.petcompanions.pet.species.RagePet;
+import io.github.crysscoder.petcompanions.pet.species.LegendaryPet;
+import io.github.crysscoder.petcompanions.pet.species.NormalPet;
+import io.github.crysscoder.petcompanions.pet.species.RagePet;
 
 import java.util.List;
 

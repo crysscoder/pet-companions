@@ -1,7 +1,7 @@
-package dev.cryst.petcompanions.pet.species;
+package io.github.crysscoder.petcompanions.pet.species;
 
 import org.bukkit.entity.Player;
-import dev.cryst.petcompanions.pet.Pet;
+import io.github.crysscoder.petcompanions.pet.Pet;
 
 import java.util.List;
 

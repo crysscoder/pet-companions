@@ -1,4 +1,4 @@
-package dev.cryst.petcompanions.util;
+package io.github.crysscoder.petcompanions.util;
 
 import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;

@@ -1,4 +1,4 @@
-package dev.cryst.petcompanions.command.subcommand;
+package io.github.crysscoder.petcompanions.command.subcommand;
 
 import org.bukkit.entity.Player;
 

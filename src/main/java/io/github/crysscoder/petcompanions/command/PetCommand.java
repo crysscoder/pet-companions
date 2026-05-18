@@ -1,11 +1,11 @@
-package dev.cryst.petcompanions.command;
+package io.github.crysscoder.petcompanions.command;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
-import dev.cryst.petcompanions.command.subcommand.SubCommand;
+import io.github.crysscoder.petcompanions.command.subcommand.SubCommand;
 
 import java.util.Arrays;
 import java.util.HashMap;

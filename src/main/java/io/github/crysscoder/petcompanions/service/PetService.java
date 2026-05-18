@@ -1,10 +1,10 @@
-package dev.cryst.petcompanions.service;
+package io.github.crysscoder.petcompanions.service;
 
 import lombok.AllArgsConstructor;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import dev.cryst.petcompanions.pet.Pet;
+import io.github.crysscoder.petcompanions.pet.Pet;
 
 import java.util.HashMap;
 import java.util.Map;
