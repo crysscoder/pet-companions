@@ -9,11 +9,12 @@ import io.github.crysscoder.petcompanions.service.PetService;
 import java.util.Objects;
 
 public final class PetCompanionsPlugin extends JavaPlugin {
+    private PetService petService;
 
     @Override
     public void onEnable() {
         PetCommand petCommand = new PetCommand();
-        PetService petService = new PetService(this);
+        petService = new PetService(this);
 
 
         petCommand.register(new SpawnCommand(petService));
@@ -26,7 +27,8 @@ public final class PetCompanionsPlugin extends JavaPlugin {
 
     @Override
     public void onDisable() {
-
-
+        if (petService != null) {
+            petService.shutdown();
+        }
     }
 }

@@ -1,10 +1,8 @@
 package io.github.crysscoder.petcompanions.pet;
 
-import com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory;
 import lombok.Data;
 import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
@@ -29,7 +27,7 @@ public abstract class Pet {
     }
 
     public void follow() {
-        if (stand == null || owner == null) return;
+        if (stand == null || stand.isDead() || owner == null || !owner.isOnline()) return;
 
         Location playerLoc = owner.getLocation();
 

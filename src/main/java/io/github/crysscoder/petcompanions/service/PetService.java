@@ -1,40 +1,71 @@
 package io.github.crysscoder.petcompanions.service;
 
-import lombok.AllArgsConstructor;
+import io.github.crysscoder.petcompanions.pet.Pet;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
-import io.github.crysscoder.petcompanions.pet.Pet;
+import org.bukkit.scheduler.BukkitTask;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 
-@AllArgsConstructor
 public class PetService {
     private final JavaPlugin plugin;
-    private final Map<Player, Pet> activePet = new HashMap<>();
+    private final Map<UUID, Pet> activePet = new HashMap<>();
+    private BukkitTask task;
 
-    public void spawnPet(Pet pet){
+    public PetService(JavaPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+    public void spawnPet(Pet pet) {
+        despawnPet(pet.getOwner());
         pet.spawn();
-        activePet.put(pet.getOwner(), pet);
-
-        Bukkit.getScheduler().runTaskTimer(plugin, this::updatePets, 0L, 2L);
-    }
-
-    public void despawnPet(Player player){
-        Pet pet = activePet.remove(player);
-        if(pet != null) pet.despawn();
-    }
-
-    public Pet getPet(Player player) {
-        return activePet.get(player);
-    }
-
-    public void updatePets() {
-        for (Pet pet : activePet.values()) {
-            pet.follow();
+        activePet.put(pet.getOwner().getUniqueId(), pet);
+        if (task == null || task.isCancelled()) {
+            task = Bukkit.getScheduler().runTaskTimer(plugin, this::updatePets, 0L, 2L);
         }
     }
 
+    public void despawnPet(Player player) {
+        Pet pet = activePet.remove(player.getUniqueId());
+        if (pet != null) {
+            pet.despawn();
+        }
+        if (activePet.isEmpty() && task != null) {
+            task.cancel();
+            task = null;
+        }
+    }
 
+    public Pet getPet(Player player) {
+        return activePet.get(player.getUniqueId());
+    }
+
+    public void updatePets() {
+        activePet.values().removeIf(pet -> {
+            if (pet.getOwner().isOnline()) {
+                return false;
+            }
+            pet.despawn();
+            return true;
+        });
+        for (Pet pet : activePet.values()) {
+            pet.follow();
+        }
+        if (activePet.isEmpty() && task != null) {
+            task.cancel();
+            task = null;
+        }
+    }
+
+    public void shutdown() {
+        if (task != null) {
+            task.cancel();
+            task = null;
+        }
+        activePet.values().forEach(Pet::despawn);
+        activePet.clear();
+    }
 }
